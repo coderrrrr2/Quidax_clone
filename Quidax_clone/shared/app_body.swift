@@ -4,24 +4,27 @@
 //
 //  Created by Adebayo Philip on 17/02/2025.
 //
-
-
 import SwiftUI
 
-// AppBody view that returns a ZStack with the desired background color
 struct AppBody<Content: View>: View {
     var content: Content
-    
-    init(@ViewBuilder content: () -> Content) {
+    var padding: EdgeInsets?  // Allow padding to be optional
+
+    init(padding: EdgeInsets? = nil, @ViewBuilder content: () -> Content) {
         self.content = content()
+        self.padding = padding
     }
-    
+
     var body: some View {
         ZStack {
             Color(AppColors.backgroundColor)
                 .ignoresSafeArea()
             
-            content
+            if let padding = padding {
+                content.padding(padding)  // Apply padding if provided
+            } else {
+                content  // No padding applied
+            }
         }
     }
 }

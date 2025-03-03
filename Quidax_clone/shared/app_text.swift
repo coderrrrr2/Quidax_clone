@@ -7,7 +7,6 @@
 import SwiftUI
 
 struct AppText: View {
-    // Required parameters
     var text: String
     
     // Optional parameters with default values
@@ -36,7 +35,7 @@ struct AppText: View {
     
     var body: some View {
         Text(text)
-            .font(font.weight(isBold ? .bold : fontWeight))
+//            .font(font.weight(isBold ? .bold : fontWeight))
             .font(.system(size: fontSize, weight: fontWeight))
             .foregroundColor(textColor)
             .multilineTextAlignment(textAlignment)
@@ -45,4 +44,3 @@ struct AppText: View {
             .italic(isItalic ? true : false)
     }
 }
-
