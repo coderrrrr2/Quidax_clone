@@ -4,7 +4,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             AppBody {
-                VStack {
+                VStack(alignment:.leading) {
                     HeaderView()
                     ScrollView {
                         PortfolioSection()
@@ -13,7 +13,7 @@ struct HomeView: View {
                         TransactionOptions()
                         MarketSection()
                     }
-                }
+                }.frame(width: .infinity,alignment: .leading)
             }
         }
     }
@@ -23,9 +23,12 @@ struct HeaderView: View {
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: "plus")
-                    .font(.system(size: 20)) // Increase size
-                    .foregroundColor(.blue)
+                Image("Image")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 30, height: 30)
+                    .clipped() // Ensures it doesn't overflow the frame
+
                 Xbox(width: 20)
                 VStack(alignment: .leading) {
                     AppText(text: "Hello Unoks")
@@ -70,7 +73,7 @@ struct PortfolioSection: View {
 // MARK: - Add Funds Button
 struct AddFundsButton: View {
     var body: some View {
-        Container(backgroundColor: AppColors.grey2, cornerRadius: 20, width: 110, height: 30) {
+        Container( backgroundColor: AppColors.grey2,  cornerRadius: 20, borderColor:AppColors.grey2, width: 110, height: 30) {
             HStack {
                 AppText(text: "Add Funds", fontWeight: .bold, fontSize: 12)
                 Image(systemName: "plus").font(.system(size: 10)).foregroundColor(.green)
@@ -82,7 +85,7 @@ struct AddFundsButton: View {
 // MARK: - Verification Banner
 struct VerificationBanner: View {
     var body: some View {
-        Container(backgroundColor: AppColors.pink, width: 360, height: 140) {
+        Container(backgroundColor: AppColors.pink, borderColor:AppColors.purple,borderWidth: 2,  width: 360, height: 140) {
             VStack(alignment: .leading) {
                 AppText(text: "Let's get started 🔥", fontWeight: .bold, textColor: .black)
                 Ybox(height: 10)
@@ -143,11 +146,53 @@ struct TransactionOption: View {
 // MARK: - Market Section
 struct MarketSection: View {
     var body: some View {
-        HStack {
-            AppText(text: "Favourites")
-            AppText(text: "Top markets")
+        VStack(alignment:.leading) {
+            HStack {
+                AppText(text: "Favourites",fontWeight:.semibold)
+                AppText(text: "Top markets",fontWeight:.semibold)
+            }.padding(.top, 30)
+            HStack{
+                checkedSection(text:"BTC/USDT",isChecked: false)
+                checkedSection(text:"DOGE/USDT",isChecked: false)
+
+            }
+            HStack{
+                checkedSection(text:"BNB/USDT",isChecked: false)
+                checkedSection(text:"POL/USDT",isChecked: false)
+
+            }
+            HStack{
+                checkedSection(text:"USDC/USDT",isChecked: false)
+                checkedSection(text:"AAVE/USDT",isChecked: false)
+
+            }
+            
         }
-        .padding(.top, 30)
+        Ybox(height: 30)
+        Container(backgroundColor: AppColors.backgroundColor, cornerRadius: 15, borderColor:AppColors.grey2,borderWidth: 1,width: 376,height: 60) {
+            AppText(text:"Add to Favourites",textColor: AppColors.grey3)
+        }
+        Ybox(height: 30)
+        Container(backgroundColor: AppColors.grey, cornerRadius: 15, borderColor:AppColors.grey,borderWidth: 1,width: 376,height: 80) {
+            HStack{
+                AppText(text:"Need help?",textColor: AppColors.grey3)
+                AppText(text:"Chat with support" ,fontWeight:.bold, textColor: AppColors.purple2)
+
+            }
+        }
+    }
+}
+
+struct checkedSection:View{
+    let text:String
+    let isChecked:Bool
+
+    var body:some View{
+        HStack{
+            AppText(text: text,fontWeight:.semibold)
+
+
+        }
     }
 }
 

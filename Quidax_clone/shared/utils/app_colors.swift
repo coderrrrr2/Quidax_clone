@@ -38,6 +38,8 @@ struct AppColors {
     static let grey2 = Color(hex:"#4F4F50")
     static let grey3 = Color(hex:"898888")
     static let greyText = Color(hex:"b5b4b3")
+    static let purple = Color(hex:"5300ba")
+    static let  purple2 = Color(hex:"cf94f8")
     
 }
 

@@ -30,7 +30,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		E59FE0F02D4A9E30005032C8 /* Exceptions for "Quidax_clone" folder in "Quidax_clone" target */ = {
+		E51FE3312D7778D500AD4996 /* Exceptions for "Quidax_clone" folder in "Quidax_clone" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -43,7 +43,7 @@
 		E59FE0C72D4A9E2B005032C8 /* Quidax_clone */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				E59FE0F02D4A9E30005032C8 /* Exceptions for "Quidax_clone" folder in "Quidax_clone" target */,
+				E51FE3312D7778D500AD4996 /* Exceptions for "Quidax_clone" folder in "Quidax_clone" target */,
 			);
 			path = Quidax_clone;
 			sourceTree = "<group>";
@@ -56,11 +56,6 @@
 		E59FE0EB2D4A9E30005032C8 /* Quidax_cloneUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Quidax_cloneUITests;
-			sourceTree = "<group>";
-		};
-		E5BB60F02D514109003E3A82 /* controllers */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -97,7 +92,6 @@
 				E59FE0E12D4A9E30005032C8 /* Quidax_cloneTests */,
 				E59FE0EB2D4A9E30005032C8 /* Quidax_cloneUITests */,
 				E59FE0C62D4A9E2B005032C8 /* Products */,
-				E5BB60F02D514109003E3A82 /* controllers */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,7 +122,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				E59FE0C72D4A9E2B005032C8 /* Quidax_clone */,
-				E5BB60F02D514109003E3A82 /* controllers */,
 			);
 			name = Quidax_clone;
 			packageProductDependencies = (
@@ -303,6 +296,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Authentication;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,6 +324,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Authentication;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

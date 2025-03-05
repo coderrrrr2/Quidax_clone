@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CreateAccountViewController.swift
 //  Quidax_clone
 //
 //  Created by Adebayo Philip on 29/01/2025.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CreateAccountViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,5 +15,7 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func Button(_ sender: Any) {
+    }
 }
 

@@ -4,7 +4,6 @@
 //
 //  Created by Adebayo Philip on 17/02/2025.
 import SwiftUI
-
 struct Container<Content: View>: View {
     var backgroundColor: Color
     var cornerRadius: CGFloat
@@ -12,7 +11,7 @@ struct Container<Content: View>: View {
     var borderWidth: CGFloat
     var width: CGFloat?
     var height: CGFloat?
-    var padding: CGFloat // Inner padding for content
+    var padding: EdgeInsets // Inner padding for content
     var content: () -> Content
 
     init(
@@ -22,7 +21,7 @@ struct Container<Content: View>: View {
         borderWidth: CGFloat = 4,
         width: CGFloat? = nil,
         height: CGFloat? = nil,
-        padding: CGFloat = 10, // Default inner padding
+        padding: EdgeInsets = EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10), // Default inner padding
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.backgroundColor = backgroundColor
@@ -36,20 +35,29 @@ struct Container<Content: View>: View {
     }
 
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .fill(backgroundColor)
-                .overlay(
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .stroke(borderColor, lineWidth: borderWidth)
-                )
-                .clipped()
+        RoundedRectangle(cornerRadius: cornerRadius)
+            .fill(backgroundColor)
+            .overlay(
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .stroke(borderColor, lineWidth: borderWidth)
+            )
+            .frame(width: width, height: height)
+            .overlay(
+                content()
+                    .padding(padding),
+                alignment: .topLeading
+            )
+            .cornerRadius(cornerRadius) // Ensure corner radius is respected
+    }
+}
 
-            content()
-                .padding(padding) // Apply custom padding to inner content
-                .foregroundColor(.white)
+
+extension View {
+    func applyPadding(_ insets: EdgeInsets?) -> some View {
+        if let insets = insets {
+            return AnyView(self.padding(insets))
+        } else {
+            return AnyView(self)
         }
-        .frame(width: width, height: height)
-        .clipped()
     }
 }
